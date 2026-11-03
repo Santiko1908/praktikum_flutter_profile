@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -51,9 +50,7 @@ class ProfilePage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-
             const SizedBox(height: 16),
-
             Column(
               children: [
                 Text(
@@ -64,9 +61,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-
                 const SizedBox(height: 8),
-
                 Text(
                   userRole,
                   style: TextStyle(
@@ -77,9 +72,7 @@ class ProfilePage extends StatelessWidget {
                 ),
               ],
             ),
-
             const SizedBox(height: 24),
-
             ElevatedButton.icon(
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -93,9 +86,7 @@ class ProfilePage extends StatelessWidget {
               icon: const Icon(Icons.edit),
               label: const Text('Edit Profil'),
             ),
-
             const SizedBox(height: 24),
-
             Container(
               padding: const EdgeInsets.symmetric(
                 vertical: 12.0,
@@ -117,9 +108,8 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-
             const Align(
-              alignmnet: Alignment.centerLeft,
+              alignment: Alignment.centerLeft,
               child: Text(
                 'Pengalaman Kerja',
                 style: TextStyle(
@@ -127,23 +117,26 @@ class ProfilePage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const Devider(),
-
-              ListView.builder(
-                itemCount: experiences.length,
-                itemBuilder: (context, index) {
-                  return Card(
-                    elevation: 2,
-                    margin:const EdgeInsets.symmetric(vertical: 6.0),
-                    child: ListTile(
-                      leading: const Icon(Icons.work, color: Colors.blueAccent),
-                      title: Text(experiences[index]),
+            ),
+            const Divider(),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: experiences.length,
+              itemBuilder: (context, index) {
+                return Card(
+                  elevation: 2,
+                  margin: const EdgeInsets.symmetric(vertical: 6.0),
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.work,
+                      color: Colors.blueAccent,
                     ),
-                  );
-                },
-
-              )
-            )
+                    title: Text(experiences[index]),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -151,3 +144,32 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
+class StatItem extends StatelessWidget {
+  final String count;
+  final String label;
+
+  const StatItem({super.key, required this.count, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          count,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 14,
+            color: Colors.grey[600],
+          ),
+        ),
+      ],
+    );
+  }
+}
