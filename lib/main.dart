@@ -22,6 +22,10 @@ class ProfilePage extends StatelessWidget {
 
   final String userName = 'Angger Santiko, S.Muda';
   final String userRole = 'Electrical Engineer';
+  final String email = 'angger@email.com';
+  final String phoneNumber = '+62 8231 4946 902';
+  final String instagram = 'nggersa';
+  final String linkedin = 'angger-santiko';
 
 
   final List<String> experiences = const [
