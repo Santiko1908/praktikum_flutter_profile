@@ -27,7 +27,6 @@ class ProfilePage extends StatelessWidget {
   final String instagram = 'nggersa';
   final String linkedin = 'angger-santiko';
 
-
   final List<String> experiences = const [
     'Supervisor Engineering - PT TOP MOST ROBOTICS INDONESIA',
     'Analysis Market - PT SANTIKO TEKNOLOGI INDONESIA',
@@ -49,11 +48,7 @@ class ProfilePage extends StatelessWidget {
             CircleAvatar(
               radius: 50,
               backgroundColor: Colors.grey[300],
-              child: const Icon(
-                Icons.person,
-                size: 50,
-                color: Colors.white,
-              ),
+              child: const Icon(Icons.person, size: 50, color: Colors.white),
             ),
             const SizedBox(height: 16),
             Column(
@@ -67,12 +62,9 @@ class ProfilePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8),
-                Text( 
+                Text(
                   userRole,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.grey[600],
-                  ),
+                  style: TextStyle(fontSize: 18, color: Colors.grey[600]),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -82,9 +74,7 @@ class ProfilePage extends StatelessWidget {
               onPressed: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text(
-                      'Fitur Edit belum aktif pada modul statis.',
-                    ),
+                    content: Text('Fitur Edit belum aktif pada modul statis.'),
                   ),
                 );
               },
@@ -101,18 +91,92 @@ class ProfilePage extends StatelessWidget {
                 color: Colors.blue[50],
                 borderRadius: BorderRadius.circular(12.0),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 24,
+                runSpacing: 8,
                 children: const [
                   StatItem(count: '15', label: 'Proyek'),
-                  SizedBox(width: 24),
                   StatItem(count: '1.2k', label: 'Followers'),
-                  SizedBox(width: 24),
                   StatItem(count: '500', label: 'Following'),
                 ],
               ),
             ),
+
             const SizedBox(height: 24),
+            Card(
+              elevation: 1,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Row(
+                      children: [
+                        Icon(Icons.contact_mail, color: Colors.blueAccent),
+                        SizedBox(width: 8),
+                        Text(
+                          'Kontak',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.email,
+                        color: Colors.blueAccent,
+                      ),
+                      title: const Text('Email'),
+                      subtitle: Text(
+                        email,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.phone,
+                        color: Colors.blueAccent,
+                      ),
+                      title: const Text('Telepon'),
+                      subtitle: Text(
+                        phoneNumber,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    ListTile(
+                      leading: const Icon(
+                        Icons.camera_alt,
+                        color: Colors.blueAccent,
+                      ),
+                      title: const Text('Instagram'),
+                      subtitle: Text(
+                        instagram,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    ListTile(
+                      leading: const Icon(Icons.work, color: Colors.blueAccent),
+                      title: const Text('LinkedIn'),
+                      subtitle: Text(
+                        linkedin,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 24),
+
+            // Judul Pengalaman Kerja
             const Align(
               alignment: Alignment.centerLeft,
               child: Text(
@@ -123,7 +187,10 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
             ),
+
+
             const Divider(),
+
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -133,10 +200,7 @@ class ProfilePage extends StatelessWidget {
                   elevation: 2,
                   margin: const EdgeInsets.symmetric(vertical: 6.0),
                   child: ListTile(
-                    leading: const Icon(
-                      Icons.work,
-                      color: Colors.blueAccent,
-                    ),
+                    leading: const Icon(Icons.work, color: Colors.blueAccent),
                     title: Text(experiences[index]),
                   ),
                 );
@@ -161,19 +225,10 @@ class StatItem extends StatelessWidget {
       children: [
         Text(
           count,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 4),
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey[600],
-          ),
-        ),
+        Text(label, style: TextStyle(fontSize: 14, color: Colors.grey[600])),
       ],
     );
   }
