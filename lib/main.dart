@@ -23,6 +23,7 @@ class ProfilePage extends StatelessWidget {
   final String userName = 'Angger Santiko, S.Muda';
   final String userRole = 'Electrical Engineer';
 
+
   final List<String> experiences = const [
     'Supervisor Engineering - PT TOP MOST ROBOTICS INDONESIA',
     'Analysis Market - PT SANTIKO TEKNOLOGI INDONESIA',
@@ -62,7 +63,7 @@ class ProfilePage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8),
-                Text(
+                Text( 
                   userRole,
                   style: TextStyle(
                     fontSize: 18,
